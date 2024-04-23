@@ -22,7 +22,7 @@ jobs:
       - name: Create luarocks  archive
         run: |
           cd ${GITHUB_WORKSPACE}/.luarocks
-          zip -r luarocks.zip *
+          zip -r ${GITHUB_WORKSPACE}/luarocks.zip *
 
       - name: Dump workspace tree
         run: |
