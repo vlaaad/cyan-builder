@@ -17,7 +17,7 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.1.5"
-      - uses: hishamhm/gh-actions-luarocks
+      - uses: hishamhm/gh-actions-luarocks@v4
 
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
