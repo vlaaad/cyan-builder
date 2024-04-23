@@ -20,4 +20,12 @@ jobs:
         run: luarocks install cyan
       
       - name: Dump workspace tree
-        run: 'tree -a ${GITHUB_WORKSPACE}'
+        run: |
+          tree -a ${GITHUB_WORKSPACE}
+
+      - name: Archive results
+        uses: actions/upload-artifact@v4
+        with:
+          name: Linux cyan
+          path: |
+            ${GITHUB_WORKSPACE}/.luarocks
