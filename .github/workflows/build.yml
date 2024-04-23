@@ -1,0 +1,23 @@
+name: "cyan-builder"
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@v1
+      - uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1.5"
+      - uses: leafo/gh-actions-luarocks@v4
+
+      - name: Install the cyan build system for Teal
+        run: luarocks install cyan
+      
+      - name: Dump workspace tree
+        run: 'tree .'
