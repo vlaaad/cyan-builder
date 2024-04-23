@@ -22,10 +22,6 @@ jobs:
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
 
-      - name: Dump workspace tree
-        run: |
-          tree -a ${GITHUB_WORKSPACE}
-
       - name: Create luarocks archive
         run: |
           zip -r luarocks.zip ${GITHUB_WORKSPACE}/.luarocks
