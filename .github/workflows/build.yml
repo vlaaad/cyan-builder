@@ -6,27 +6,28 @@ on:
       - '*'
 
 jobs:
-  build-macos-linux:
+  build:
     strategy:
       matrix:
         os: [linux-latest, macos-latest, macos-14]
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Show runner architecture
+        run: echo "Runner architecture is ${{ runner.arch }} (${{ matrix.os }})"
+
       - uses: actions/checkout@v4
       - uses: leafo/gh-actions-lua@master
         with:
           luaVersion: "luajit"
       - uses: hishamhm/gh-actions-luarocks@master
 
-      - name: Show runner architecture
-        run: echo "Runner architecture is ${{ runner.arch }} (${{ matrix.os }})"
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
 
       - name: Archive results
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ runner.os }}-cyan
+          name: ${{ runner.os }}-${{ runner.arch }}-cyan
           path: .luarocks/
 
 
