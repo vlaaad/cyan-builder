@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ilammy/msvc-dev-cmd@v1
-      - uses: leafo/gh-actions-lua@v10
+      - uses: leafo/gh-actions-lua@master
         with:
           luaVersion: "5.1.5"
       - uses: hishamhm/gh-actions-luarocks@5013277f6f115c27478f18c1f647f8de98390628
