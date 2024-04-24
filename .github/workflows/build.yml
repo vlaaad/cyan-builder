@@ -9,7 +9,7 @@ jobs:
   build-macos-linux:
     strategy:
       matrix:
-        os: [linux-latest, macos-latest]
+        os: [linux-latest, macos-latest, macos-14]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -18,6 +18,8 @@ jobs:
           luaVersion: "luajit"
       - uses: hishamhm/gh-actions-luarocks@master
 
+      - name: Show runner architecture
+        run: echo "Runner architecture is ${{ runner.arch }} (${{ matrix.os }})"
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
 
