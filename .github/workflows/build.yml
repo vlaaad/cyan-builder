@@ -24,10 +24,10 @@ jobs:
       - uses: vimtor/action-zip@v1.2
         with:
           files: ${GITHUB_WORKSPACE}/.luarocks/
-          dest: ${RUNNER_OS}-luarocks.zip
+          dest: ${{ runner.os }}-luarocks.zip
 
       - name: Archive results
         uses: actions/upload-artifact@v4
         with:
-          name: ${RUNNER_OS}-cyan
-          path: ${RUNNER_OS}-luarocks.zip
+          name: ${{ runner.os }}-cyan
+          path: ${{ runner.os }}-luarocks.zip
