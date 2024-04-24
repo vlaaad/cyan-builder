@@ -19,7 +19,6 @@ jobs:
       - uses: hishamhm/gh-actions-luarocks@master
 
       - name: Install the cyan build system for Teal
-        shell: cmd
         run: luarocks install cyan
 
       - uses: vimtor/action-zip@v1.2
