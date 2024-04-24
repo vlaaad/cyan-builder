@@ -23,7 +23,7 @@ jobs:
 
       - uses: vimtor/action-zip@v1.2
         with:
-          files: ${{ github.workspace }}/.luarocks/
+          files: .luarocks/
           dest: ${{ runner.os }}-luarocks.zip
 
       - name: Archive results
