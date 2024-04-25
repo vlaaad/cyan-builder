@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [linux-latest, macos-latest, macos-14]
+        os: [ubuntu-latest, macos-latest, macos-14]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Show runner architecture
