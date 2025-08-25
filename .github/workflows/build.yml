@@ -54,14 +54,14 @@ jobs:
       - name: Zip artifact
         run: |
           cd ${{ github.workspace }}/.luarocks
-          zip -r ../cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip .
+          zip -r ../${{ runner.os }}-${{ runner.arch }}-cyan.zip .
 
       - name: Archive results
         uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
           name: ${{ runner.os }}-${{ runner.arch }}-cyan
-          path: ${{ github.workspace }}/cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip
+          path: ${{ github.workspace }}/${{ runner.os }}-${{ runner.arch }}-cyan.zip
 
 
   build-windows:
@@ -82,11 +82,11 @@ jobs:
 
       - name: Zip artifact
         run: |
-          powershell Compress-Archive -Path "C:\Users\runneradmin\AppData\Roaming\luarocks\*" -DestinationPath cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip
+          powershell Compress-Archive -Path "C:\Users\runneradmin\AppData\Roaming\luarocks\*" -DestinationPath ${{ runner.os }}-${{ runner.arch }}-cyan.zip
 
       - name: Archive results
         uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
           name: ${{ runner.os }}-${{ runner.arch }}-cyan
-          path: cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip
+          path: ${{ github.workspace }}/${{ runner.os }}-${{ runner.arch }}-cyan.zip
