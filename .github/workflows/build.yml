@@ -77,7 +77,7 @@ jobs:
 
       - name: Zip artifact
         run: |
-          7z a -tzip ${{ runner.os }}-${{ runner.arch }}-cyan.zip C:\Users\runneradmin\AppData\Roaming\luarocks\* ${{ github.workspace }}\.lua\*
+          7z a -tzip ${{ runner.os }}-${{ runner.arch }}-cyan.zip C:\Users\runneradmin\AppData\Roaming\luarocks\* ${{ github.workspace }}\.lua\bin\lua.exe
 
       - name: Archive results
         uses: actions/upload-artifact@v4
