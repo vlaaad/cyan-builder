@@ -53,8 +53,8 @@ jobs:
 
       - name: Zip artifact
         run: |
-          cd ${{ github.workspace }}
-          zip -r cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip .luarocks
+          cd ${{ github.workspace }}/.luarocks
+          zip -r ../cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip .
 
       - name: Archive results
         uses: actions/upload-artifact@v4
@@ -82,7 +82,7 @@ jobs:
 
       - name: Zip artifact
         run: |
-          powershell Compress-Archive -Path "C:\Users\runneradmin\AppData\Roaming\luarocks" -DestinationPath cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip
+          powershell Compress-Archive -Path "C:\Users\runneradmin\AppData\Roaming\luarocks\*" -DestinationPath cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip
 
       - name: Archive results
         uses: actions/upload-artifact@v4
