@@ -6,6 +6,8 @@ on:
       - '*'
     tags:
       - '*'
+
+jobs:
   release:
     needs: [build, build-windows]
     if: startsWith(github.ref, 'refs/tags/')
@@ -25,10 +27,6 @@ on:
           files: ./artifacts/**/*
           draft: false
           prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-jobs:
   build:
     strategy:
       matrix:
