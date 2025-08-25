@@ -52,7 +52,8 @@ jobs:
           mkdir -p .luarocks/bin .luarocks/lib
           cp -a .lua/bin/. .luarocks/bin/
           cp -a .lua/lib/. .luarocks/lib/
-          zip -r ${{ runner.os }}-${{ runner.arch }}-cyan.zip .luarocks/* .lua/*
+          cd ${{ github.workspace }}/.luarocks
+          zip -r ../${{ runner.os }}-${{ runner.arch }}-cyan.zip .
 
       - name: Archive results
         uses: actions/upload-artifact@v4
