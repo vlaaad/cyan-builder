@@ -27,6 +27,8 @@ jobs:
         run: luarocks install compat53
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
+      - name: List installed LuaRocks packages
+        run: ls -Ra ${{ github.workspace }}/.luarocks/
 
       - name: Archive results
         uses: actions/upload-artifact@v4
