@@ -35,7 +35,8 @@ jobs:
         with:
           if-no-files-found: error
           name: ${{ runner.os }}-${{ runner.arch }}-cyan
-          path: ${{ github.workspace }}/.luarocks/**
+          path: ${{ github.workspace }}/.luarocks/
+          include-hidden-files: true
 
 
   build-windows:
