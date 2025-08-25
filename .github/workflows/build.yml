@@ -61,7 +61,7 @@ jobs:
         with:
           if-no-files-found: error
           name: ${{ runner.os }}-${{ runner.arch }}-cyan
-          path: ${{ github.workspace }}/cyan-artifact.zip
+          path: ${{ github.workspace }}/cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip
 
 
   build-windows:
@@ -89,4 +89,4 @@ jobs:
         with:
           if-no-files-found: error
           name: ${{ runner.os }}-${{ runner.arch }}-cyan
-          path: cyan-artifact.zip
+          path: cyan-artifact-${{ runner.os }}-${{ runner.arch }}.zip
