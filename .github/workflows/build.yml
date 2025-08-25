@@ -10,7 +10,7 @@ on:
 jobs:
   release:
     needs: [build, build-windows]
-    if: startsWith(github.ref, 'refs/tags/')
+    # if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
       - name: Download all artifacts
@@ -51,13 +51,17 @@ jobs:
       - name: List installed LuaRocks packages
         run: ls -Ra ${{ github.workspace }}/.luarocks/
 
+      - name: Zip artifact
+        run: |
+          cd ${{ github.workspace }}
+          zip -r cyan-artifact.zip .luarocks
+
       - name: Archive results
         uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
           name: ${{ runner.os }}-${{ runner.arch }}-cyan
-          path: ${{ github.workspace }}/.luarocks/
-          include-hidden-files: true
+          path: ${{ github.workspace }}/cyan-artifact.zip
 
 
   build-windows:
@@ -76,9 +80,13 @@ jobs:
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
 
+      - name: Zip artifact
+        run: |
+          powershell Compress-Archive -Path "C:\Users\runneradmin\AppData\Roaming\luarocks" -DestinationPath cyan-artifact.zip
+
       - name: Archive results
         uses: actions/upload-artifact@v4
         with:
           if-no-files-found: error
           name: ${{ runner.os }}-${{ runner.arch }}-cyan
-          path: "C:\\Users\\runneradmin\\AppData\\Roaming\\luarocks"
+          path: cyan-artifact.zip
