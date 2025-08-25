@@ -48,8 +48,8 @@ jobs:
 
       - name: Zip artifact
         run: |
-          cd ${{ github.workspace }}/.luarocks
-          zip -r ../${{ runner.os }}-${{ runner.arch }}-cyan.zip .
+          cd ${{ github.workspace }}
+          zip -r ${{ runner.os }}-${{ runner.arch }}-cyan.zip .luarocks/* .lua/*
 
       - name: Archive results
         uses: actions/upload-artifact@v4
@@ -77,7 +77,7 @@ jobs:
 
       - name: Zip artifact
         run: |
-          7z a -tzip ${{ runner.os }}-${{ runner.arch }}-cyan.zip C:\Users\runneradmin\AppData\Roaming\luarocks\*
+          7z a -tzip ${{ runner.os }}-${{ runner.arch }}-cyan.zip C:\Users\runneradmin\AppData\Roaming\luarocks\* C:\Users\runneradmin\AppData\Roaming\lua\*
 
       - name: Archive results
         uses: actions/upload-artifact@v4
