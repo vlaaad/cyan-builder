@@ -33,7 +33,7 @@ jobs:
         with:
           if-no-files-found: error
           name: ${{ runner.os }}-${{ runner.arch }}-cyan
-          path: .luarocks/
+          path: ${{ github.workspace }}/.luarocks/
 
 
   build-windows:
