@@ -6,8 +6,6 @@ on:
       - '*'
 
 jobs:
-
-
   build:
     strategy:
       matrix:
