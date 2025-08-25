@@ -21,6 +21,10 @@ jobs:
           luaVersion: "luajit-openresty"
       - uses: hishamhm/gh-actions-luarocks@master
 
+      - name: Install tl
+        run: luarocks install tl
+      - name: Install compat53
+        run: luarocks install compat53
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
 
@@ -40,6 +44,10 @@ jobs:
           luaVersion: "luajit-openresty"
       - uses: hishamhm/gh-actions-luarocks@master
 
+      - name: Install tl
+        run: luarocks install tl
+      - name: Install compat53
+        run: luarocks install compat53
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
 
