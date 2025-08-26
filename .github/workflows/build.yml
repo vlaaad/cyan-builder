@@ -45,6 +45,8 @@ jobs:
         run: luarocks install compat53
       - name: Install the cyan build system for Teal
         run: luarocks install cyan
+      - name: Install the cyan Teal language server
+        run: luarocks install teal-language-server
 
       - name: Prepare and zip artifact
         run: |
