@@ -34,7 +34,6 @@ jobs:
         run: echo "Runner architecture is ${{ runner.arch }} (${{ matrix.os }})"
 
       - uses: actions/checkout@v4
-      - uses: ilammy/msvc-dev-cmd@master
       - uses: leafo/gh-actions-lua@master
         with:
           luaVersion: "5.4.1"
@@ -70,6 +69,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@master
       - uses: leafo/gh-actions-lua@master
         with:
           luaVersion: "5.4.1"
