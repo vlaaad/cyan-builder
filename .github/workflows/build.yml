@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: leafo/gh-actions-lua@master
         with:
-          luaVersion: "5.4"
+          luaVersion: "5.4.1"
       - uses: hishamhm/gh-actions-luarocks@master
 
       - name: Install tl
@@ -71,7 +71,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: leafo/gh-actions-lua@master
         with:
-          luaVersion: "5.4"
+          luaVersion: "5.4.1"
       - uses: hishamhm/gh-actions-luarocks@master
 
       - name: Install tl
