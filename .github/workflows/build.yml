@@ -85,12 +85,9 @@ jobs:
         run: |
           curl -L -o tls-windows.zip https://github.com/teal-language/teal-language-server/releases/download/0.1.2-pre-1/tls-windows.zip
           7z x tls-windows.zip -otls-lsp
-          $luarocksBin = "$env:APPDATA\luarocks\bin"
-          $luarocksLib = "$env:APPDATA\luarocks\lib"
-          $tlsBin = "${{ github.workspace }}\tls-lsp\bin\*"
-          $tlsLib = "${{ github.workspace }}\tls-lsp\lib\*"
-          Copy-Item $tlsBin $luarocksBin -Recurse -Force
-          Copy-Item $tlsLib $luarocksLib -Recurse -Force
+          $luarocksRoot = "$env:APPDATA\luarocks"
+          $tlsLspRoot = "${{ github.workspace }}\tls-lsp\*"
+          Copy-Item $tlsLspRoot $luarocksRoot -Recurse -Force
 
       - name: Copy .lua/bin and .lua/lib to luarocks
         run: |
